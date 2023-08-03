@@ -1,0 +1,2 @@
+-r base.txt
+selenium==4.11.2
