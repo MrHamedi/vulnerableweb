@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html  dir="rtl" lang="fa">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="author" charset="ahmadihamed231@gmailcom">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> 
+        <link rel="stylesheet" href="{%  static 'core/css/base.css' %}" >
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        <title>{%block page_title%}{% endblock page_title %}</title>
+        {% block head %}
+        {% endblock head %}
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        <nav class="navbar navbar-expand-lg navbar-custom navbar-white ">
+            <a class="navbar-brand" href="{% url 'core:homepage' %}">VSC</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+              <img src="{% static 'core/images/icon-menu.png' %}">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="">پروفایل</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">خروج</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="">ورود</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">ثبت نام</a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </nav>
+          <section class="pt-1 pb-1">
+            {% block content %}
+            {% endblock content %}
+          </section>
+          {% include 'core/footer.html' %}
+    </body>
+</html>
