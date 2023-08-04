@@ -1,5 +1,5 @@
 from django.test import TestCase
-from topic.models import Topic
+from topics.models import Topic
 
 
 class TopicTest(TestCase):
@@ -14,11 +14,9 @@ class TopicTest(TestCase):
         self.assertEqual(Topic.objects.count() ,2 ,"all the topic objects "
                          "did not get created!")
         
-        self.assertEqual(self.topic_2.title ,"sqli" ,"The title of topic "
+        self.assertEqual(self.topic_2.title ,"xss" ,"The title of topic "
                          "was not set correctly!")
         
-        self.assertEqual(self.topic_1.text ,"xss is an attack in which the "
+        self.assertEqual(self.topic_2.text ,"xss is an attack in which the "
                          "hacker ..." ,"The text of topic object was not set "
                          "correctly!")
-        
-
