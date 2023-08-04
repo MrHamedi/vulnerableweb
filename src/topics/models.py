@@ -7,7 +7,7 @@ from django.shortcuts import reverse
 
 class Topic(models.Model):
 
-    slug=models.UUIDField(primary_key=True ,default=uuid.uuid4 ,editable=False)
+    uuid=models.UUIDField(primary_key=True ,default=uuid.uuid4 ,editable=False)
     title=models.CharField(max_length=200 ,verbose_name="موضوع" )
     text=RichTextField(verbose_name="متن")
     created=models.DateTimeField(auto_now_add=True ,verbose_name="تاریخ ایجاد")
