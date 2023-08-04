@@ -1,6 +1,6 @@
 from .base_functional_test import BaseFunctionalTest
 from selenium import webdriver
-from topics import Topic
+from topics.models import Topic
 
 class topics_tests(BaseFunctionalTest):
 
@@ -18,8 +18,8 @@ class topics_tests(BaseFunctionalTest):
 
         #There he could see a few topics like sqli and xss attack
         #They where in a row 
-        topics_section=self.browser.find_element("id" ,"topcis" ,"Topics " 
-                                                 "section is not available!")
+        topics_section=self.browser.find_element("id" ,"topcis" )
+        
         topics=topics_section.browser.find_element("css selector" ,".topics")
         self.assertTrue(
             any(topic.title=="sqli" for topic in topics),
