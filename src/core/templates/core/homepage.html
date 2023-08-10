@@ -8,9 +8,9 @@
 homepage
 {% endblock page_title %}
 {% block content %}
-<div class="container mt-2 row m-auto text-center">
+<div id="topics_section" class="container mt-2 row m-auto text-center">
     {% for topic in topics %}
-    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-4">
+    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-4 topics">
         <a href="{{topic.get_absolute_url}}" class="text-dark text-decoration-none ">
             <img src="{{topic.pic.url}}" class="topic_image img-fluid " >
             <p class="text-center">{{ topic.text|striphtml|truncatewords:10 }}</p>
