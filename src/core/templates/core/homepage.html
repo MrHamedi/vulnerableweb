@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load custome_filters %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'core/css/homepage.css' %}">
+{% endblock head %}
+{% block page_title %}
+homepage
+{% endblock page_title %}
+{% block content %}
+<div id="topics_section" class="container mt-2 row m-auto text-center">
+    {% for topic in topics %}
+    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-4 topics">
+        <a href="{{topic.get_absolute_url}}" class="text-dark text-decoration-none ">
+            <img src="{{topic.pic.url}}" class="topic_image img-fluid " >
+            <p class="text-center">{{ topic.text|striphtml|truncatewords:10 }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
