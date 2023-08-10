@@ -1,0 +1,8 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <h2>{{topic.title}}</h2>
+    {% if topic.pic %}
+        <img src="{{topic.pic.url}}" class="topic_image img-fluid " >
+    {% endif %}
+    {{topic.text}}
+{% endblock content %}
