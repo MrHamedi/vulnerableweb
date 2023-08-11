@@ -1,0 +1,46 @@
+/*
+    this css file is used for topic detail page
+*/
+
+.topic-container{
+    text-align: right;
+
+}
+
+#topic-title {
+    display: flex;
+    align-items: center;
+}
+
+
+.topic_image {
+        left: 10px;
+        top: auto;
+        width: 20vw;
+        height: 20vw; 
+        border-radius: 50%; 
+        border: 1px solid #cc7a00; 
+        overflow: hidden; 
+        background-position: center top; 
+
+}
+
+.topic_image img{
+    width: 100%; /* Make the image fill the circular container with a slight offset */
+    height: 100%; /* Allow the height to adjust according to the image aspect ratio */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    position: center; /* Set the position to relative */
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+    #topic-title {
+        display: block; /* Change to block display */
+        text-align: center; /* Center text horizontally */
+        margin: 20px 0; /* Add some spacing around the title */
+    }
+    
+    .topic_image {
+        display: none;
+    }
+}
