@@ -1,8 +1,19 @@
 {% extends 'core/base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet"  href="{% static 'topics/css/topic_detail.css' %}">
+{% endblock head %}
 {% block content %}
-    <h2>{{topic.title}}</h2>
+<div class="topic-container container" >
+    <section class="row">
+    <h2 id="topic-title" class="col-md-8">{{topic.title}}</h2>
     {% if topic.pic %}
-        <img src="{{topic.pic.url}}" class="topic_image img-fluid " >
+        <section class="topic_image">
+            <img src="{{topic.pic.url}}" > 
+        </section>
     {% endif %}
-    {{topic.text}}
+    </section>
+
+    <div id="topic-text">{{topic.text|safe}}</div>
+</div>
 {% endblock content %}
