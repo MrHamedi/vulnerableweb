@@ -1,10 +1,10 @@
 from selenium import webdriver
-from django.test import LiveServerTestCase 
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase 
 import time
 from selenium.common.exceptions import WebDriverException
 
 
-class BaseFunctionalTest(LiveServerTestCase):
+class BaseFunctionalTest(StaticLiveServerTestCase):
 
     def setUp(self)->None:
         self.browser=webdriver.Firefox()
