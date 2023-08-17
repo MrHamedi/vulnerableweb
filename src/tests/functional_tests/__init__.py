@@ -1,1 +1,2 @@
-from .topics_tests import topics_tests
+from .topics_tests import TopicTests
+from .exercise_tests import ExercisesTest

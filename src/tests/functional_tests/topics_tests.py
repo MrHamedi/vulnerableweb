@@ -6,7 +6,7 @@ from .base_functional_test import BaseFunctionalTest
 from topics.models import Topic
 
 
-class topics_tests(BaseFunctionalTest):
+class TopicTests(BaseFunctionalTest):
 
     def setUp(self)->None:
         # Get the absolute path of the current directory
