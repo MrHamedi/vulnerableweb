@@ -3,7 +3,7 @@ from selenium import webdriver
 
 from .base_functional_test import BaseFunctionalTest
 from topics.models import Topic
-from exerccise.models import Exercise, ExerciseTip
+from exercise.models import Exercise, ExerciseTip
 from selenium.webdriver.common.by import By
 
 
