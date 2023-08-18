@@ -44,9 +44,10 @@ INSTALLED_APPS = [
 
     #custome
     'myauth',
-    'topics',
+    'topics.apps.TopicsConfig',
+    'exercise.apps.ExerciseConfig',
     'utils',
-    'core.apps.CoreConfig'
+    'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
