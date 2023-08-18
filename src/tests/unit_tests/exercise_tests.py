@@ -14,7 +14,7 @@ class ExerciseTest(TestCase):
 
         self.image_path = os.path.join(current_directory, '..',
                                        'test_resources', 'dummy.png')
-        self.topic = Topic.objects.create(
+        self.topic_1 = Topic.objects.create(
             title="Sql injection",
             text="sqli is an attack in "
             "which the hacker...",
@@ -38,12 +38,12 @@ class ExerciseTest(TestCase):
 
         self.tip = ExerciseTip.objects.create(
             tip="This is a tip for sqli exercise",
-            exercise=self.exercise
+            exercise=self.exercise_2
         )
 
         self.tip_2 = ExerciseTip.objects.create(
             tip="This is another tip for sqli exercise",
-            exercise=self.exercise
+            exercise=self.exercise_2
         )
 
     def test_exercise_can_be_created_and_is_correct(self):
@@ -61,9 +61,10 @@ class ExerciseTest(TestCase):
                          "exercise is not correct!")
     
     def test_topics_created_can_be_found(self):
+        topics_count = Topic.objects.count()
         self.assertEqual(
-            count := Topic.objects.count(), 2, "Instead of two "
-                         "topics, {count} of them has been created")
+            topics_count, 1, f"Instead of one "
+                         f"topics, {topics_count} of them has been created")
         self.assertEqual(
             self.tip_2.tip, "This is another tip for sqli exercise",
             "The value of tip field of tip object is not correct!"
@@ -83,7 +84,7 @@ class ExerciseTest(TestCase):
     def test_exercise_page_contains(self):
         response = self.client.get(self.exercise_2.URL)
         self.assertContains(
-            response, self.topic_1.title, "The title of exercise was "
+            response, self.topic.title, "The title of exercise was "
             "not found in page"
         )
         self.assertContains(
