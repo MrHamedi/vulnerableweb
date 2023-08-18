@@ -41,12 +41,12 @@ class TopicTests(BaseFunctionalTest):
 
         topics=topics_section.find_elements("css selector" ,".topics")
         self.assertTrue(
-            any(topic.find_element("css selector", 'p').text=="sqli is an \
-                attack in which the hacker..."  for topic in topics)
+            any(topic.find_element("css selector", 'p').text=="sqli is an "
+                "attack in which the hacker..."  for topic in topics)
         )
         self.assertTrue(
-            any(topic.find_element("css selector", 'p').text=="xss is an \
-                attack is an attack in which ..."  for topic in topics)
+            any(topic.find_element("css selector", 'p').text=="xss is an "
+                "attack is an attack in which ..."  for topic in topics)
         )
         #Check if  topic contains an image 
         for topic in topics:
