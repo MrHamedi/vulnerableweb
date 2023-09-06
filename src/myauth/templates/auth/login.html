@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'auth/css/login.css' %}">
+{% endblock head %}
+
+{% block page_title %}
+ورود
+{% endblock page_title %}
+
+{% block content %}
+<div class="container h-100">
+    <section class="d-flex align-items-center justify-content-center text-right" id="login_div">
+        <form method="POST" action="{% url 'auth:login' %}" id="login_form">
+            <div class="form-group">
+                <strong class="d-block  border-bottom border-warning text-right">ورود</strong>
+                <p class="text-right">اگر هنوز ثبت نام نکرده اید. لطفا ابتدا <a href="#">ثبت
+                        نام </a>کنید.</p>
+                {% csrf_token %}
+                <label for="username">نام کاربری</label>
+                <input class="form-control" required type="username" name="username" id="username">
+                {% if form.username.errors %}
+                <section class="text-danger bg-light rounded">
+                    <p>{{ form.username.errors }}</p>
+                </section>
+                {% endif %}
+                
+                <label for="password">گذرواژه</label>
+                <input class="form-control" required type="password" id="password" name="password">
+                {% if form.password.errors %}
+                <section class="text-danger bg-light rounded">
+                    <p>{{ form.password.errors }}</p>
+                </section>
+                {% endif %}
+                
+                {% for message in messages %}
+                <section class="text-danger text-center bg-light p-1 rounded mb-2">
+                    <span>{{ message }}</span>
+                </section>
+                {% endfor %}
+                
+                <button type="submit" class="btn bg-white">ورود</button>
+                <section class="d-inline-block m-1">
+                    <a class="mt-1  text-white " href="#">گذرواژه خود را فراموش کرده
+                        اید؟ </a>
+                </section>
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock content %}
