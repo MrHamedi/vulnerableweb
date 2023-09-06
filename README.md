@@ -1,5 +1,10 @@
-vulnerable-website is a web application developed with the aim to assist students and other people to practice their penetration and web security skills  
+vulnerable-website is a web application developed with the aim to assist students and other people to practice their skills in developing secure web applications.  
 stack : 
   Django
-  Postgresql 
-
+  Sqlite 
+  Bash 
+  python 
+  html 
+  css 
+  bootstrap 
+  
