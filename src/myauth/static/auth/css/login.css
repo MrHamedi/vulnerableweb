@@ -1,0 +1,30 @@
+#login_div{
+    height:100%;
+}
+
+#login_form{
+    background-color:#e68a00;
+    padding:3%;
+    border-radius: 10%;
+}
+
+#login_form label,#login_form strong,#login_form p{
+    color: white;
+}
+
+#login_form a{
+    color:#0a6f8c;
+}
+
+
+@media  (min-width: 200px) and (max-width: 599px){
+    #login_form{
+        width:200px;
+    }
+  }
+
+@media  (min-width: 600px){
+    #login_form{
+        width:50%;
+    }
+  }
