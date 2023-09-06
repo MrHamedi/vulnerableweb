@@ -14,7 +14,7 @@ class Exercise(TimeStamp):
     instruction = RichTextField(verbose_name="راهنما", blank=True)
     topic = models.ForeignKey(
         Topic, on_delete=models.CASCADE, verbose_name="مبحث")
-    URL = models.URLField(max_length=200)
+    URL = models.CharField(max_length=200)
 
     class Meta:
         ordering = ("created", "updated")
