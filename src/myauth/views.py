@@ -1,5 +1,3 @@
-
-
 from django.contrib.auth.hashers import make_password
 from django.db import connection
 from django.contrib.auth import get_user_model ,login as auth_login
@@ -10,8 +8,6 @@ from .forms import UserLoginForm
 
 def login(request):
     """
-        This is a unsecure way of login 
-        you should make it secure according to what have been told in 
         topic 1 : sqli             
         Intentional vulnerability (DO NOT USE IN REAL WORLD CODE)
     """
@@ -21,9 +17,9 @@ def login(request):
             cd=form.cleaned_data
             username=cd["username"]
             password=make_password(cd['password'])
-            users = f"SELECT * FROM auth_user WHERE username = '{username}' AND password = '{password}'"
+            query = "SELECT * FROM auth_user WHERE username='" + username + "' AND password='" + password + "'"
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM auth_user;")
+                cursor.execute(query)
                 result=cursor.fetchone()
             if(result):
                 user=get_user_model().objects.get(id=result[0])
